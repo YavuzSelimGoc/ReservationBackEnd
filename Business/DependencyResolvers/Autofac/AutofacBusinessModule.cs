@@ -28,11 +28,12 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CategoryManager>().As<ICategoryService>();
             builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
 
-            builder.RegisterType<BlogManager>().As<IBlogService>();
-            builder.RegisterType<EfBlogDal>().As<IBlogDal>();
+            builder.RegisterType<BusinessManager>().As<IBusinessService>();
+            builder.RegisterType<EfBusinessDal>().As<IBusinessDal>();
 
-            //builder.RegisterType<ImageManager>().As<IImageService>();
-            //builder.RegisterType<EfImageDal>().As<IImageDal>();
+            builder.RegisterType<CustomerManager>().As<ICustomerService>();
+            builder.RegisterType<EfCustomerDal>().As<ICustomerDal>();
+
 
 
             builder.RegisterType<AuthManager>().As<IAuthService>();

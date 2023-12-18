@@ -44,6 +44,7 @@ namespace Business.Concrete
                 FirstName = userForRegisterDto.FirstName,
                 LastName = userForRegisterDto.LastName,
                 Password = md5Password,
+                UserType=userForRegisterDto.UserType,
                 Status = true
                 // bu şekilde db ve kodu güncelleyebilirsin
             };
