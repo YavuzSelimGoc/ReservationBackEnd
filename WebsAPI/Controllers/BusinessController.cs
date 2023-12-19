@@ -36,6 +36,36 @@ namespace WebApi.Controllers
             }
             return BadRequest(result.Message);
         }
+        [HttpGet("getBusinessDto")]
+        public IActionResult GetAllDto()
+        {
+            var result = _BusinessService.GetBusinessDetailsDto();
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpGet("GetByCategoryIdDto")]
+        public IActionResult GetByCategoryId(int categoryId)
+        {
+            var result = _BusinessService.GetBusinessDetailsDtoByCategoryId(categoryId);
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpGet("getBusinessActiveDto")]
+        public IActionResult GetAllActiveDto()
+        {
+            var result = _BusinessService.GetBusinessDetailsActiveDto();
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
         [HttpPost("add")]
         public IActionResult Add(Entities.Concrete.Business Business)
         {

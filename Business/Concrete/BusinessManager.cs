@@ -4,6 +4,7 @@ using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,22 @@ namespace Business.Concrete
         public IDataResult<Entities.Concrete.Business> GetById(int businessId)
         {
             return new SuccesDataResult<Entities.Concrete.Business>(_businessDal.Get(x => x.BusinessId == businessId), Messages.UserNotFound);
+        }
+
+        public IDataResult<List<BusinessDto>> GetBusinessDetailsDto()
+        {
+
+            return new SuccesDataResult<List<BusinessDto>>(_businessDal.GetBusinessDetails(), Messages.ProductAdded);
+        }
+        public IDataResult<List<BusinessDto>> GetBusinessDetailsActiveDto()
+        {
+
+            return new SuccesDataResult<List<BusinessDto>>(_businessDal.GetBusinessDetailsActive(), Messages.ProductAdded);
+        }
+        public IDataResult<List<BusinessDto>> GetBusinessDetailsDtoByCategoryId(int categoryId)
+        {
+
+            return new SuccesDataResult<List<BusinessDto>>(_businessDal.GetBusinessByCategoryId(categoryId), Messages.ProductAdded);
         }
 
         public IDataResult<List<Entities.Concrete.Business>> GetList()
