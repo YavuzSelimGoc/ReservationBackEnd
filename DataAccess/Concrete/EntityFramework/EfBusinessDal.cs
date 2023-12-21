@@ -12,10 +12,10 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public List<BusinessDto> GetBusinessDetails()
         {
-            using (ReservationContext northwindContext = new ReservationContext())
+            using (ReservationContext reservationContext = new ReservationContext())
             {
-                var result = from b in northwindContext.Businesses
-                             join c in northwindContext.Category
+                var result = from b in reservationContext.Businesses
+                             join c in reservationContext.Category
                              on b.CategoryId equals c.CategoryId
 
 
@@ -24,6 +24,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  BusinessId=b.BusinessId,
                                  BusinessAdress=b.BusinessAdress,
                                  CategoryName=c.CategoryName,
+                                 BusinessPhoneNumber=b.BusinessPhoneNumber,
+                                 userName =b.userName,
                                  BusinessDescription=b.BusinessDescription,
                                  BusinessImage=b.BusinessImage,
                                  BusinessMaxPrice=b.BusinessMaxPrice,
@@ -39,10 +41,10 @@ namespace DataAccess.Concrete.EntityFramework
         }
         public List<BusinessDto> GetBusinessDetailsActive()
         {
-            using (ReservationContext northwindContext = new ReservationContext())
+            using (ReservationContext reservationContext = new ReservationContext())
             {
-                var result = from b in northwindContext.Businesses
-                             join c in northwindContext.Category
+                var result = from b in reservationContext.Businesses
+                             join c in reservationContext.Category
                              on b.CategoryId equals c.CategoryId
                              where b.BusinessStatus==true
                              select new BusinessDto
@@ -50,6 +52,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  BusinessId = b.BusinessId,
                                  BusinessAdress = b.BusinessAdress,
                                  CategoryName = c.CategoryName,
+                                 BusinessPhoneNumber = b.BusinessPhoneNumber,
+                                 userName = b.userName,
                                  BusinessDescription = b.BusinessDescription,
                                  BusinessImage = b.BusinessImage,
                                  BusinessMaxPrice = b.BusinessMaxPrice,
@@ -65,17 +69,19 @@ namespace DataAccess.Concrete.EntityFramework
         }
         public List<BusinessDto> GetBusinessByCategoryId(int categoryId)
         {
-            using (ReservationContext northwindContext = new ReservationContext())
+            using (ReservationContext reservationContext = new ReservationContext())
             {
-                var result = from b in northwindContext.Businesses
-                             join c in northwindContext.Category
+                var result = from b in reservationContext.Businesses
+                             join c in reservationContext.Category
                              on b.CategoryId equals c.CategoryId
                              where b.BusinessStatus==true && b.CategoryId==categoryId
                              select new BusinessDto
                              {
                                  BusinessId = b.BusinessId,
                                  BusinessAdress = b.BusinessAdress,
+                                 BusinessPhoneNumber = b.BusinessPhoneNumber,
                                  CategoryName = c.CategoryName,
+                                 userName = b.userName,
                                  BusinessDescription = b.BusinessDescription,
                                  BusinessImage = b.BusinessImage,
                                  BusinessMaxPrice = b.BusinessMaxPrice,

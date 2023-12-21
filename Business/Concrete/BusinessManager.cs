@@ -69,6 +69,10 @@ namespace Business.Concrete
         {
             return new SuccesDataResult<List<Entities.Concrete.Business>>(_businessDal.GetAll().ToList());
         }
+        public IDataResult<Entities.Concrete.Business> GetListByUserName(string userName)
+        {
+            return new SuccesDataResult<Entities.Concrete.Business>(_businessDal.Get(x => x.userName == userName), Messages.UserNotFound);
+        }
         public IDataResult<List<Entities.Concrete.Business>> GetListActive()
         {
             return new SuccesDataResult<List<Entities.Concrete.Business>>(_businessDal.GetAll(x => x.BusinessStatus == true).ToList());

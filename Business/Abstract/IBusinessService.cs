@@ -10,6 +10,7 @@ namespace Business.Abstract
     {
         IDataResult<Entities.Concrete.Business> GetById(int categoryId);
         IDataResult<List<Entities.Concrete.Business>> GetList();
+        IDataResult<Entities.Concrete.Business> GetListByUserName(string userName);
         IDataResult<List<Entities.Concrete.Business>> GetListActive();
         IDataResult<List<BusinessDto>> GetBusinessDetailsDto();
         IDataResult<List<BusinessDto>> GetBusinessDetailsDtoByCategoryId(int categoryId);

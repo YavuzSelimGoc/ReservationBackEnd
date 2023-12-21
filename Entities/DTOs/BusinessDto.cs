@@ -7,6 +7,8 @@ namespace Entities.DTOs
 	{
         public int BusinessId { get; set; }
         public string CategoryName { get; set; }
+        public string userName { get; set; }
+        public string BusinessPhoneNumber { get; set; }
         public string BusinessName { get; set; }
         public string BusinessAdress { get; set; }
         public string BusinessImage { get; set; }

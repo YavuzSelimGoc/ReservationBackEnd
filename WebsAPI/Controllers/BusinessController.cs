@@ -26,6 +26,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result.Message);
         }
+        [HttpGet("getByUserName")]
+        public IActionResult GetByUserName(string userName)
+        {
+            var result = _BusinessService.GetListByUserName(userName);
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpGet("getallActive")]
         public IActionResult GetAllActive()
         {

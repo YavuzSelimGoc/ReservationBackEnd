@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Castle.Core.Resource;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -51,6 +52,10 @@ namespace Business.Concrete
         public IDataResult<List<Customer>> GetList()
         {
             return new SuccesDataResult<List<Customer>>(_customerDal.GetAll().ToList());
+        }
+        public IDataResult<Customer> GetListByUserName(string userName)
+        {
+            return new SuccesDataResult<Customer>(_customerDal.Get(x => x.UserName == userName), Messages.UserNotFound);
         }
         public IDataResult<List<Customer>> GetListActive()
         {

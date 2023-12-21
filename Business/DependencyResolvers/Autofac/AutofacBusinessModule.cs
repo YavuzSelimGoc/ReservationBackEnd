@@ -31,6 +31,10 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<BusinessManager>().As<IBusinessService>();
             builder.RegisterType<EfBusinessDal>().As<IBusinessDal>();
 
+            builder.RegisterType<ReservationManager>().As<IReservationService>();
+            builder.RegisterType<EfReservationDal>().As<IReservationDal>();
+
+
             builder.RegisterType<CustomerManager>().As<ICustomerService>();
             builder.RegisterType<EfCustomerDal>().As<ICustomerDal>();
 

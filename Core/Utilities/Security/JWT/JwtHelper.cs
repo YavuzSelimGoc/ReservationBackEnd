@@ -33,12 +33,14 @@ namespace Core.Utilities.Security.JWT
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var token = jwtSecurityTokenHandler.WriteToken(jwt);
             var UserType = user.UserType;
+            var UserName = user.UserName;
 
             return new AccessToken
             {
                 Token = token,
                 UserType = UserType,
-                Expiration = _accessTokenExpiration
+                Expiration = _accessTokenExpiration,
+                UserName=UserName
 
             };
 

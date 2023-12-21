@@ -9,6 +9,7 @@ namespace Business.Abstract
     {
         IDataResult<Customer> GetById(int customerId);
         IDataResult<List<Customer>> GetList();
+        IDataResult<Customer> GetListByUserName(string userName);
         IDataResult<List<Customer>> GetListActive();
         IResult Add(Customer customer);
         IResult Delete(Customer customer);

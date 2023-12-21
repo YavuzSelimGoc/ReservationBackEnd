@@ -7,7 +7,9 @@ namespace Entities.Concrete
 	{
 		public int BusinessId { get; set; }
 		public int CategoryId { get; set; }
+        public string userName { get; set; }
         public string BusinessName { get; set; }
+        public string BusinessPhoneNumber { get; set; }
         public string BusinessAdress { get; set; }
         public string BusinessImage { get; set; }
         public decimal BusinessMinPrice { get; set; }
