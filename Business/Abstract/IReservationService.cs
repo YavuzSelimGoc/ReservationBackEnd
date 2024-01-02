@@ -10,6 +10,7 @@ namespace Business.Abstract
     {
         IDataResult<Reservation> GetById(int reservationId);
         IDataResult<List<Reservation>> GetList();
+        IDataResult<List<ReservationDto>> GetListDto();
         IDataResult<List<ReservationDto>> GetListByUserNameForCustomer(string userName);
         IDataResult<List<ReservationDto>> GetListByUserNameForCustomerActive(string userName);
         IDataResult<List<ReservationDto>> GetListByUserNameForBusiness(string userName);

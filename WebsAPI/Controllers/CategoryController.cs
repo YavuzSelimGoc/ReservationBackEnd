@@ -2,6 +2,7 @@
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 
 namespace WebApi.Controllers
 {
@@ -39,6 +40,21 @@ namespace WebApi.Controllers
         [HttpPost("add")]
         public IActionResult Add(Category category)
         {
+            category.CategoryStatus = true;
+            var result = _categoryService.Add(category);
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpPost("ard")]
+        public IActionResult Ard( string description,string categoryName)
+        {
+
+            Category category = new Category();
+            category.CategoryName = categoryName;
+            category.CategoryDescription = description;
             category.CategoryStatus = true;
             var result = _categoryService.Add(category);
             if (result.Succes)

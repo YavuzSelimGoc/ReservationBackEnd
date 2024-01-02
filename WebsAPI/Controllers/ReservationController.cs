@@ -24,6 +24,18 @@ namespace WebApi.Controllers
             {
                 return Ok(result);
             }
+
+            return BadRequest(result.Message);
+        }
+        [HttpGet("getAllDto")]
+        public IActionResult GetAllDto()
+        {
+            var result = _reservationService.GetListDto();
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+
             return BadRequest(result.Message);
         }
         [HttpGet("getByUserNameForCustomer")]

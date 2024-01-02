@@ -54,6 +54,10 @@ namespace Business.Concrete
         {
             return new SuccesDataResult<List<Reservation>>(_customerDal.GetAll().ToList());
         }
+        public IDataResult<List<ReservationDto>> GetListDto()
+        {
+            return new SuccesDataResult<List<ReservationDto>>(_customerDal.GetReservationDetails().ToList());
+        }
         public IDataResult<List<ReservationDto>> GetListByUserNameForCustomer(string userName)
         {
             return new SuccesDataResult<List<ReservationDto>>(_customerDal.GetReservationDetailsByCustomerUserName(userName).ToList());

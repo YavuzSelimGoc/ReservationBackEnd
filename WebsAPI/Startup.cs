@@ -89,7 +89,9 @@ namespace WebsAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebsAPI v1"));
             }
-            app.UseCors(builder=>builder.WithOrigins("http://localhost:4200", "205.144.171.237", "yavuz05-001-site1.etempurl.com").AllowAnyHeader());
+            // app.UseCors(builder=>builder.WithOrigins("http://localhost:4200", "205.144.171.237", "yavuz05-001-site1.etempurl.com").AllowAnyHeader());
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader());
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions()
