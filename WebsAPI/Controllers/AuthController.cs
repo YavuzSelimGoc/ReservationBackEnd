@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
+using Business.Mail;
 using Core.Entities.Concrete;
+using Core.Utilities.Results;
 using Entities.Concrete;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +49,15 @@ namespace WebsAPI.Controllers
                 return Ok(result);
             }
             return BadRequest(result.Message);
+        }
+        [HttpGet("Mail")]
+        public IActionResult SendMail(string mails,string message)
+        {
+            SenderMail mail = new SenderMail();
+            mail.SenderMailContact(mails, message);
+
+            return BadRequest("Başarılı");
+
         }
 
         [HttpPost("register")]

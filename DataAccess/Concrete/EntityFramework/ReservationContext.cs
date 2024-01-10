@@ -21,7 +21,9 @@ namespace DataAccess.Concrete.EntityFramework
             //              .Build();
             //    optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
 
+            //optionsBuilder.UseSqlServer(@"Data Source=SQL5102.site4now.net;Initial Catalog=db_aa373e_reservation;User Id=db_aa373e_reservation_admin;Password=Amasya05");
             optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=Reservation;User=SA;Password=Password;Trusted_Connection=False;Encrypt=false;");
+
         }
 
         public DbSet<OperationClaim> OperationClaims { get; set; }
